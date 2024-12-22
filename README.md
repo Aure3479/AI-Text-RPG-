@@ -17,7 +17,7 @@ This Text RPG is powered by a local LLM (Language Learning Model) setup (e.g., u
 
 - French-Only Gameplay: All prompts, narration, and user choices are generated in French.
 - Dice Rolls: Each user choice triggers an automatic dice roll, influencing success or failure.
-- Debug Option for Dice: A small debug field to force a dice result.
+- Debug Option for Dice: A small debug field to force a dice result (don't forget the validate button).
 - Multiple generator: One for to set up the scene , one to create choices , one to describe the consequences of the failed/succeded choice
 - Contextual Continuity: The scenario takes into account previous successes or failures, generating more immersive continuity.
 - Multiple Model Support: Users can pick from a list of LLM models (e.g., Llama or Mistral) in the sidebar.

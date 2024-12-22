@@ -1,0 +1,217 @@
+/* 
+  THEME : Dark parchemin 
+  Ajouts:
+  - .loading-spinner (animation bouclée)
+  - fixes divers
+*/
+
+* {
+  box-sizing: border-box;
+  margin: 0; 
+  padding: 0;
+}
+
+/* Corps : 2 états -> writing / waiting */
+body.state-waiting {
+  background: linear-gradient(120deg, #3f3f3f, #2c2c2c);
+}
+
+body.state-writing {
+  background: linear-gradient(120deg, #564f3c, #2c2c2c);
+}
+
+body {
+  color: #eee;
+  font-family: "Trebuchet MS", sans-serif;
+  transition: background 0.8s ease;
+  min-height: 100vh;
+}
+
+/* Layout principal */
+.main-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Barre latérale fixe */
+.sidebar-fixed {
+  background: rgba(30, 30, 30, 0.9);
+  width: 220px;
+  padding: 20px;
+  flex-shrink: 0;
+}
+
+/* Section centrale */
+.center-panel {
+  flex: 1;
+  padding: 20px;
+}
+
+.center-panel h1 {
+  font-family: "Cinzel", serif; 
+  text-align: center;
+  color: #f0e6d6;
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin: 6px 0 2px 0;
+  font-weight: bold;
+}
+input, select, textarea {
+  width: 100%;
+  margin-bottom: 10px;
+  border: 1px solid #888;
+  background: #2e2e2e;
+  color: #ddd;
+  padding: 6px;
+  border-radius: 4px;
+}
+
+/* Boutons */
+button {
+  cursor: pointer;
+  border: none;
+  padding: 8px 12px;
+  margin-top: 6px;
+  border-radius: 4px;
+  transition: background 0.2s;
+  font-family: "Trebuchet MS", sans-serif;
+}
+.btn-primary {
+  background: #5e8b7e;
+  color: #fff;
+}
+.btn-primary:hover {
+  background: #4c786c;
+}
+.btn-secondary {
+  background: #846e3d;
+  color: #fff;
+}
+.btn-secondary:hover {
+  background: #715d32;
+}
+.btn-choice {
+  background: #2b2a25;
+  color: #f2f2f2;
+  font-family: "Inconsolata", monospace; 
+  text-align: left;
+  width: 100%;
+  margin-bottom: 8px;
+  border: 1px solid #444;
+}
+.btn-choice:hover {
+  background: #3a3a35;
+}
+
+/* Initial section */
+.initial-section {
+  background: rgba(0,0,0,0.3);
+  border: 1px solid #444;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* Game section */
+.game-section {
+  margin-top: 20px;
+}
+.turns-remaining {
+  text-align: right;
+  margin-bottom: 8px;
+  font-style: italic;
+  color: #f0e6d6;
+}
+
+/* Loading */
+#loadingIndicator {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Spinner animation */
+.loading-spinner {
+  border: 6px solid #ccc; 
+  border-top: 6px solid #4caf50; 
+  border-radius: 50%;
+  width: 30px; 
+  height: 30px;
+  margin: 0 auto;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Zone histoire */
+#storyContainer {
+  background: rgba(0,0,0,0.2);
+  border: 1px solid #555;
+  min-height: 200px;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  transition: background 0.3s;
+}
+
+.paragraph-block {
+  margin-bottom: 10px;
+  padding: 8px;
+  border-left: 3px solid #7d6a48; 
+  background: rgba(50,50,50, 0.3);
+  border-radius: 3px;
+}
+
+/* Différencier narration vs. dice */
+.paragraph-block.narration {
+  font-family: "Cormorant Garamond", serif; 
+  font-size: 1.1em;
+  line-height: 1.4em;
+}
+.paragraph-block.dice {
+  font-family: "Inconsolata", monospace;
+  border-left-color: #a1c16f;
+  background: rgba(80,80,80,0.3);
+}
+
+/* Fade-in */
+.fade-in {
+  animation: fadeInUp 0.6s ease;
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0);   }
+}
+
+/* Popup d'historique */
+.popup-history {
+  display: none;
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  width: 300px;
+  height: 400px;
+  background: rgba(15,15,15,0.95);
+  border: 2px solid #666;
+  padding: 10px;
+  overflow: hidden;
+  z-index: 9999;
+}
+.popup-history h2 {
+  margin-top: 0;
+  font-family: "Cinzel", serif;
+  color: #fff;
+}
+#fullHistory {
+  width: 100%;
+  height: 270px;
+  resize: none;
+  background: #2e2e2e;
+  color: #ddd;
+}
+.popup-buttons {
+  text-align: right;
+}
